@@ -1,3 +1,4 @@
+import os
 from random import randint
 
 def codertexte(texte):
@@ -34,6 +35,6 @@ def save_dict_lettres(complement_path:str=''):
 			ligne+=f"\t{variation}"
 		f.write(ligne)
 
-PATH_LETTRES = "lettres.tsv"
+PATH_LETTRES = os.path.abspath("lettres.tsv")
 ENCODING = "utf-16"
-Lettres = load_dict_lettres()
+Lettres = load_dict_lettres() 
