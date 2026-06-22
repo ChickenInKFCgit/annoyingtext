@@ -13,10 +13,10 @@ def codertexte(texte):
 	return res
 
 
-def load_dict_lettres():
+def load_dict_lettres(complement_path:str=''):
 	d = {}
 
-	f = open(PATH_LETTRES, mode="r",encoding=ENCODING)
+	f = open(complement_path+PATH_LETTRES, mode="r",encoding=ENCODING)
 	for ligne in f.read().split("\n"):
 		possibilites = ligne.split("\t")
 		lettre = possibilites.pop(0)
@@ -26,8 +26,8 @@ def load_dict_lettres():
 			
 
 
-def save_dict_lettres():
-	f = open(PATH_LETTRES, mode="w+",encoding=ENCODING)
+def save_dict_lettres(complement_path:str=''):
+	f = open(complement_path+PATH_LETTRES, mode="w+",encoding=ENCODING)
 	for lettre in Lettres.keys():
 		ligne = f"\n{lettre}"
 		for variation in Lettres[lettre]:
